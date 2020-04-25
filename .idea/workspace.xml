@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="49c34fb4-c5e6-45f7-a268-c475035733f5" name="Default Changelist" comment="" />
+    <list default="true" id="49c34fb4-c5e6-45f7-a268-c475035733f5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/core/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/testquiz1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quiz/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/quiz/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quiz/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/quiz/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/quizstyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/quizstyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/testquiz.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/testquiz.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,6 +23,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -24,10 +37,20 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Club-Website" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/css" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/account" />
+      <recent name="$PROJECT_DIR$/templates" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Dinq Quiz" type="Python.DjangoServer" factoryName="Django server">
@@ -67,6 +90,15 @@
       <updated>1587436962370</updated>
       <workItem from="1587436964582" duration="20000" />
       <workItem from="1587437004176" duration="7847000" />
+      <workItem from="1587478657514" duration="661000" />
+      <workItem from="1587499275178" duration="206000" />
+      <workItem from="1587520035487" duration="5740000" />
+      <workItem from="1587593439614" duration="8297000" />
+      <workItem from="1587633009746" duration="1961000" />
+      <workItem from="1587679226478" duration="21000" />
+      <workItem from="1587684322580" duration="4427000" />
+      <workItem from="1587714409857" duration="2842000" />
+      <workItem from="1587781319768" duration="6473000" />
     </task>
     <servers />
   </component>
@@ -74,22 +106,26 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="887" height="275" key="GridCell.Tab.0.bottom" timestamp="1587447500289">
+    <state x="1182" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1587788870966">
       <screen x="0" y="27" width="1866" height="1053" />
     </state>
-    <state width="887" height="275" key="GridCell.Tab.0.bottom/0.27.1866.1053@0.27.1866.1053" timestamp="1587447500289" />
-    <state width="887" height="275" key="GridCell.Tab.0.center" timestamp="1587447500288">
+    <state x="1182" y="311" width="424" height="491" key="FileChooserDialogImpl/0.27.1866.1053@0.27.1866.1053" timestamp="1587788870966" />
+    <state width="887" height="275" key="GridCell.Tab.0.bottom" timestamp="1587783951765">
       <screen x="0" y="27" width="1866" height="1053" />
     </state>
-    <state width="887" height="275" key="GridCell.Tab.0.center/0.27.1866.1053@0.27.1866.1053" timestamp="1587447500288" />
-    <state width="887" height="275" key="GridCell.Tab.0.left" timestamp="1587447500288">
+    <state width="887" height="275" key="GridCell.Tab.0.bottom/0.27.1866.1053@0.27.1866.1053" timestamp="1587783951765" />
+    <state width="887" height="275" key="GridCell.Tab.0.center" timestamp="1587783951764">
       <screen x="0" y="27" width="1866" height="1053" />
     </state>
-    <state width="887" height="275" key="GridCell.Tab.0.left/0.27.1866.1053@0.27.1866.1053" timestamp="1587447500288" />
-    <state width="887" height="275" key="GridCell.Tab.0.right" timestamp="1587447500289">
+    <state width="887" height="275" key="GridCell.Tab.0.center/0.27.1866.1053@0.27.1866.1053" timestamp="1587783951764" />
+    <state width="887" height="275" key="GridCell.Tab.0.left" timestamp="1587783951764">
       <screen x="0" y="27" width="1866" height="1053" />
     </state>
-    <state width="887" height="275" key="GridCell.Tab.0.right/0.27.1866.1053@0.27.1866.1053" timestamp="1587447500289" />
+    <state width="887" height="275" key="GridCell.Tab.0.left/0.27.1866.1053@0.27.1866.1053" timestamp="1587783951764" />
+    <state width="887" height="275" key="GridCell.Tab.0.right" timestamp="1587783951765">
+      <screen x="0" y="27" width="1866" height="1053" />
+    </state>
+    <state width="887" height="275" key="GridCell.Tab.0.right/0.27.1866.1053@0.27.1866.1053" timestamp="1587783951765" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -17,7 +17,7 @@ class Category(models.Model):
 
 class Question(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='questions')
-    ques = models.TextField()
+    ques = models.CharField(max_length=100000)
     description = models.TextField(blank=True, null=True)
     option_1 = models.CharField(max_length=10000,)
     option_2 = models.CharField(max_length=10000, blank=True, null=True)

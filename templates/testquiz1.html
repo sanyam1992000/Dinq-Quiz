@@ -1,0 +1,425 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Quiz</title>
+
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .container {
+  width: 100%;
+  padding: 10px 10px 10px 10px;
+
+}
+
+.frame {
+  height: 100%;
+  background:
+    linear-gradient(
+    rgba(35,43,85,0.75),
+    rgba(35,43,85,0.95)),
+    url(https://dl.dropboxusercontent.com/u/22006283/preview/codepen/clouds-cloudy-forest-mountain.jpg) no-repeat center center;
+  background-size: cover;
+  margin-left: 0px;
+  margin-right: 0px;
+  border-top: solid 1px rgba(255,255,255,.5);
+  border-radius: 5px;
+  box-shadow: 0px 2px 7px rgba(0,0,0,0.2);
+  overflow: hidden;
+  transition: all .5s ease;
+}
+
+.form-styling {
+  width: 100%;
+  height: 35px;
+	padding-left: 15px;
+    padding-right: 15px;
+	border: none;
+	border-radius: 20px;
+  margin-bottom: 20px;
+  background: rgba(255,255,255,.2);
+}
+
+.form-styling-textarea {
+  width: 100%;
+	padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+	border: none;
+	border-radius: 20px;
+  margin-bottom: 20px;
+  background: rgba(255,255,255,.2);
+}
+
+.form-styling::placeholder {
+    color: #0f0f0f;
+}
+
+label {
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 13px;
+  padding-left: 15px;
+  padding-bottom: 10px;
+  color: rgba(255,255,255,.7);
+  display: block;
+}
+    </style>
+
+      <style>
+          html, body{
+  font-family: 'Exo 2', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
+.wrapper{
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.nav-bar-area{
+  width: 100%;
+  height: 60px;
+  background-color: rgba(35,43,85,0.95);
+  padding: 0;
+  margin:0 auto;
+  position:relative;
+
+}
+
+ul{
+  margin: 0 auto;
+  padding: 0;
+  width: 900px;
+  height: 60px;
+}
+
+ul li{
+  display:inline;
+  float:right;
+  padding: 10px 10px 10px 8px;
+  margin: 0 3% 0 0;
+  color: #fff;
+  cursor:pointer;
+  line-height: 225%;
+}
+
+li:hover{
+  background-color: #888888;
+}
+
+.menu{
+display:none;
+color:#fff;
+font-weight:bold;
+}
+
+#text{
+float:left;
+}
+
+ #image{
+ float:right;
+ cursor:pointer;
+ }
+
+
+
+@media screen and (max-width: 600px){
+	.nav-bar-area{
+	height:auto;
+	overflow:auto;
+	}
+
+	ul{
+	width: 100%;
+	height: auto;
+	display:block;
+	overflow: hidden;
+	}
+
+	ul li{
+	width: 50%;
+	float:left;
+	position: relative;
+	display:block;
+	margin: -1px;
+	padding: 10px 0 10px 0;
+	text-indent: 25px;
+	border-bottom: 1px solid #888888;
+	border-right: 1px solid #888888;
+	}
+
+	.nav-bar{
+	display:block;
+	}
+
+
+}
+
+@media screen and (max-width: 480px){
+
+	.menu{
+	display:block;
+	padding: 20px 0 40px 0;
+	border-bottom: 1px solid #fff;
+	}
+
+	#text{
+	margin: 0 0 0 20px;
+	}
+
+	#image{
+	margin: 0 30px 0 0;
+	}
+
+	.nav-bar{
+	display:none;
+	}
+
+	.nav-bar{
+	font-size: 0.8em;
+	}
+
+
+}
+
+
+
+
+
+      </style>
+  </head>
+
+
+
+<body style="background-color: rgba(35,43,85,0.75);">
+
+    <div class="wrapper">
+        <div class="nav-bar-area">
+            <div class="menu">
+                <div id="text">Menu</div>
+                <div id="image"><img src="https://i.ya-webdesign.com/images/hamburger-icon-white-png-13.png" height="20px"/></div>
+            </div>
+            <div class="nav-bar">
+                <ul>
+                    <a href="{% url 'logout_url' %}"><li>Logout</li></a>
+                    <li>{{ user.username }}</li>
+                  </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="container" style="padding-top: 50px">
+      <div class="frame">
+
+        <form class="form-signup" action="" method="post" name="form">
+            {{ formset.management_form }}
+            {% csrf_token %}
+            <div class="col-12 align-self-center" style="padding-bottom: 50px; padding-top: 50px; padding-left: 80px; padding-right: 80px">
+
+                <div class="row">
+                    <h4 style="color:white;">Category</h4>
+                    {% render_field form.name placeholder="Category" class="form-styling" type="text" %}
+                </div>
+                <hr style="height:2px;border-width:0;color:white;background-color:white">
+                <div id="questions">
+                    {% for form1 in formset %}
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row">
+                                    <h4 style="color:white;">Question {{ forloop.counter }}</h4>
+
+                                </div>
+
+                                <div class="row">
+                                    {% render_field form1.ques placeholder="Question" class="form-styling" type="text" %}
+                                </div>
+
+                                <div class="row">
+                                      <div class="col-6">
+                                        <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                              <input type="radio" name="correct-answer-{{ forloop.counter }}" value="1">
+                                            </div>
+                                          </div>
+                                            {% render_field form1.option_1 type="text" class="form-control form-styling" style="background: rgba(255,255,255,.2);border: none;border-radius: 20px;" placeholder="Option 1"%}
+                                        </div>
+                                      </div>
+
+                                      <div class="col-6">
+                                        <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                              <input type="radio" name="correct-answer-{{ forloop.counter }}" value="2">
+                                            </div>
+                                          </div>
+                                            {% render_field form1.option_2 type="text" class="form-control form-styling" style="background: rgba(255,255,255,.2);border: none;border-radius: 20px;" placeholder="Option 2  (Optional)"%}
+                                        </div>
+                                      </div>
+
+                                      <div class="col-6">
+                                        <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                              <input type="radio" name="correct-answer-{{ forloop.counter }}" value="3">
+                                            </div>
+                                          </div>
+                                            {% render_field form1.option_3 type="text" class="form-control form-styling" style="background: rgba(255,255,255,.2);border: none;border-radius: 20px;" placeholder="Option 3 (Optional)"%}
+                                        </div>
+                                      </div>
+
+                                      <div class="col-6">
+                                        <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                              <input type="radio" name="correct-answer-{{ forloop.counter }}" value="4">
+                                            </div>
+                                          </div>
+                                            {% render_field form1.option_4 type="text" class="form-control form-styling" style="background: rgba(255,255,255,.2);border: none;border-radius: 20px;" placeholder="Option 4 (Optional)"%}
+                                        </div>
+                                      </div>
+
+                                </div>
+
+                                <div class="row">
+                                    {% render_field form1.description placeholder="Description" class="form-styling-textarea" type="text" rows='2' %}
+                                </div>
+
+                                <div class="row">
+                                    <h5 style="color:white;"> Delete Question &ensp;   &ensp;</h5>
+                                    {% render_field form1.DELETE %}
+                                </div>
+
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div id="bottom" class="container text-center">
+                    <button type="button" id="add_button" class="btn btn-outline-light btn-lg submit"><i class="far fa-check-circle"></i> Add Question</button>
+                    <button type="submit" class="btn btn-outline-light btn-lg submit"><i class="far fa-check-circle"></i> Submit</button>
+                </div>
+            </div>
+        </form>
+
+      </div>
+      </div>
+
+    <div id="empty-form" style="display: none;">
+        <hr style="height:2px;border-width:0;color:white;background-color:white">
+        <div class="row">
+                            <div class="col-12">
+                                <div class="row">
+                                    <h4 style="color:white;">Question __question-prfix__</h4>
+                                </div>
+
+                                <div class="row">
+                                    {% render_field formset.empty_form.ques placeholder="Question" class="form-styling" type="text" %}
+                                </div>
+
+                                <div class="row">
+                                      <div class="col-6">
+                                        <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                              <input type="radio" name="correct-answer-__question-prfix__" value="1">
+                                            </div>
+                                          </div>
+                                            {% render_field formset.empty_form.option_1 type="text" class="form-control form-styling" style="background: rgba(255,255,255,.2);border: none;border-radius: 20px;" placeholder="Option 1"%}
+                                        </div>
+                                      </div>
+
+                                      <div class="col-6">
+                                        <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                              <input type="radio" name="correct-answer-__question-prfix__" value="2">
+                                            </div>
+                                          </div>
+                                            {% render_field formset.empty_form.option_2 type="text" class="form-control form-styling" style="background: rgba(255,255,255,.2);border: none;border-radius: 20px;" placeholder="Option 2  (Optional)"%}
+                                        </div>
+                                      </div>
+
+                                      <div class="col-6">
+                                        <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                              <input type="radio" name="correct-answer-__question-prfix__" value="3">
+                                            </div>
+                                          </div>
+                                            {% render_field formset.empty_form.option_3 type="text" class="form-control form-styling" style="background: rgba(255,255,255,.2);border: none;border-radius: 20px;" placeholder="Option 3 (Optional)"%}
+                                        </div>
+                                      </div>
+
+                                      <div class="col-6">
+                                        <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                              <input type="radio" name="correct-answer-__question-prfix__" value="4">
+                                            </div>
+                                          </div>
+                                            {% render_field formset.empty_form.option_4 type="text" class="form-control form-styling" style="background: rgba(255,255,255,.2);border: none;border-radius: 20px;" placeholder="Option 4 (Optional)"%}
+                                        </div>
+                                      </div>
+
+                                </div>
+
+                                <div class="row">
+                                    {% render_field formset.empty_form.description placeholder="Description" class="form-styling-textarea" type="text" rows='2' %}
+                                </div>
+                                 <div class="row">
+                                    <h5 style="color:white;"> Delete Question &ensp;   &ensp;</h5>
+                                    {% render_field formset.empty_form.DELETE %}
+                                </div>
+
+                            </div>
+                        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#add_button').click(function () {
+                var form_idx = $('#id_Question-TOTAL_FORMS').val()
+                $('#questions').append($('#empty-form').html().replace(/__prefix__/g, form_idx).replace(/__question-prfix__/g, parseInt(form_idx)+1));
+                $('#id_Question-TOTAL_FORMS').val(parseInt(form_idx)+1);
+            });
+        });
+
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $("#image").click(function(){
+                $(".nav-bar").slideToggle("swing");
+
+            });
+
+            $(window).resize(function(){
+            var w = $(window).width();
+            var navBar = $(".nav-bar");
+            if (w > 320 & navBar.is(":hidden")){
+                navBar.removeAttr("style");
+            }
+
+            });
+
+        });
+    </script>
+</body>
+
+</html>

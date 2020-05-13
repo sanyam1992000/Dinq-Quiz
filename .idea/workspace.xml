@@ -2,17 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49c34fb4-c5e6-45f7-a268-c475035733f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/core/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/testquiz1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/migrations/0002_auto_20200421_0337.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/migrations/0003_auto_20200421_0513.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/migrations/0004_auto_20200422_2238.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/migrations/0005_auto_20200424_0221.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/core/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/quiz/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/quiz/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quiz/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/quiz/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/quizstyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/quizstyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/testquiz.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/testquiz.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/logout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/testquiz1.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/testquiz1.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -52,7 +56,29 @@
       <recent name="$PROJECT_DIR$/templates" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.request">
+    <configuration name="request" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Dinq Quiz" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/core" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/core/request.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Dinq Quiz" type="Python.DjangoServer" factoryName="Django server">
       <module name="Dinq Quiz" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -77,6 +103,11 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.request" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -98,7 +129,18 @@
       <workItem from="1587679226478" duration="21000" />
       <workItem from="1587684322580" duration="4427000" />
       <workItem from="1587714409857" duration="2842000" />
-      <workItem from="1587781319768" duration="6473000" />
+      <workItem from="1587781319768" duration="10932000" />
+      <workItem from="1587941294249" duration="4879000" />
+      <workItem from="1587970193868" duration="864000" />
+      <workItem from="1588039696413" duration="8000" />
+      <workItem from="1588161747818" duration="7327000" />
+      <workItem from="1588174170939" duration="1259000" />
+      <workItem from="1588231272588" duration="134000" />
+      <workItem from="1588400337894" duration="4847000" />
+      <workItem from="1588514222500" duration="19000" />
+      <workItem from="1588539640497" duration="150000" />
+      <workItem from="1588751701290" duration="5144000" />
+      <workItem from="1588935784259" duration="53000" />
     </task>
     <servers />
   </component>
@@ -106,36 +148,48 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="666" y="302" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587941477530">
+      <screen x="0" y="27" width="1866" height="1053" />
+    </state>
+    <state x="666" y="302" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1866.1053@0.27.1866.1053" timestamp="1587941477530" />
     <state x="1182" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1587788870966">
       <screen x="0" y="27" width="1866" height="1053" />
     </state>
     <state x="1182" y="311" width="424" height="491" key="FileChooserDialogImpl/0.27.1866.1053@0.27.1866.1053" timestamp="1587788870966" />
-    <state width="887" height="275" key="GridCell.Tab.0.bottom" timestamp="1587783951765">
+    <state width="887" height="258" key="GridCell.Tab.0.bottom" timestamp="1588756589562">
       <screen x="0" y="27" width="1866" height="1053" />
     </state>
-    <state width="887" height="275" key="GridCell.Tab.0.bottom/0.27.1866.1053@0.27.1866.1053" timestamp="1587783951765" />
-    <state width="887" height="275" key="GridCell.Tab.0.center" timestamp="1587783951764">
+    <state width="887" height="258" key="GridCell.Tab.0.bottom/0.27.1866.1053@0.27.1866.1053" timestamp="1588756589562" />
+    <state width="887" height="258" key="GridCell.Tab.0.center" timestamp="1588756589561">
       <screen x="0" y="27" width="1866" height="1053" />
     </state>
-    <state width="887" height="275" key="GridCell.Tab.0.center/0.27.1866.1053@0.27.1866.1053" timestamp="1587783951764" />
-    <state width="887" height="275" key="GridCell.Tab.0.left" timestamp="1587783951764">
+    <state width="887" height="258" key="GridCell.Tab.0.center/0.27.1866.1053@0.27.1866.1053" timestamp="1588756589561" />
+    <state width="887" height="258" key="GridCell.Tab.0.left" timestamp="1588756589561">
       <screen x="0" y="27" width="1866" height="1053" />
     </state>
-    <state width="887" height="275" key="GridCell.Tab.0.left/0.27.1866.1053@0.27.1866.1053" timestamp="1587783951764" />
-    <state width="887" height="275" key="GridCell.Tab.0.right" timestamp="1587783951765">
+    <state width="887" height="258" key="GridCell.Tab.0.left/0.27.1866.1053@0.27.1866.1053" timestamp="1588756589561" />
+    <state width="887" height="258" key="GridCell.Tab.0.right" timestamp="1588756589562">
       <screen x="0" y="27" width="1866" height="1053" />
     </state>
-    <state width="887" height="275" key="GridCell.Tab.0.right/0.27.1866.1053@0.27.1866.1053" timestamp="1587783951765" />
+    <state width="887" height="258" key="GridCell.Tab.0.right/0.27.1866.1053@0.27.1866.1053" timestamp="1588756589562" />
+    <state width="887" height="340" key="GridCell.Tab.1.bottom" timestamp="1588753113092">
+      <screen x="0" y="27" width="1866" height="1053" />
+    </state>
+    <state width="887" height="340" key="GridCell.Tab.1.bottom/0.27.1866.1053@0.27.1866.1053" timestamp="1588753113092" />
+    <state width="887" height="340" key="GridCell.Tab.1.center" timestamp="1588753113091">
+      <screen x="0" y="27" width="1866" height="1053" />
+    </state>
+    <state width="887" height="340" key="GridCell.Tab.1.center/0.27.1866.1053@0.27.1866.1053" timestamp="1588753113091" />
+    <state width="887" height="340" key="GridCell.Tab.1.left" timestamp="1588753113091">
+      <screen x="0" y="27" width="1866" height="1053" />
+    </state>
+    <state width="887" height="340" key="GridCell.Tab.1.left/0.27.1866.1053@0.27.1866.1053" timestamp="1588753113091" />
+    <state width="887" height="340" key="GridCell.Tab.1.right" timestamp="1588753113091">
+      <screen x="0" y="27" width="1866" height="1053" />
+    </state>
+    <state width="887" height="340" key="GridCell.Tab.1.right/0.27.1866.1053@0.27.1866.1053" timestamp="1588753113091" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/core/models.py</url>
-          <line>20</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Dinq_Quiz$request.coverage" NAME="request Coverage Results" MODIFIED="1588756589540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/core" />
   </component>
 </project>

@@ -11,6 +11,8 @@ router.register('questions', coreviews.QuestionAPIViewSet, basename='question')
 
 urlpatterns = [
     path('', coreviews.HomeView, name='home'),
+    path('new-quiz/', coreviews.EmptyFormView, name='new_form'),
+    path('edit-quiz/<slug>/', coreviews.EditFormView, name='edit_form'),
 
     path('accounts/logout/', coreviews.LogoutView, name='logout_url'),
     # path('accounts/login/', allauthviews.LoginView, name='account_login'),

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+
+    {% block metatags %}
+    {% endblock %}
+
+    {% block title %}
+    {% endblock %}
+
+    {% block static %}
+    {% endblock %}
+
+    <style>
+          html, body{
+              font-family: 'Exo 2', sans-serif;
+              margin: 0;
+              padding: 0;
+            }
+
+
+            .wrapper{
+              width: 100%;
+              margin: 0 auto;
+              padding: 0;
+            }
+
+            .nav-bar-area{
+              width: 100%;
+              height: 60px;
+              background-color: rgba(35,43,85,0.95);
+              padding: 0;
+              margin:0 auto;
+              position:relative;
+
+            }
+
+            ul{
+              margin: 0 auto;
+              padding: 0;
+              width: 900px;
+              height: 60px;
+            }
+
+            ul li{
+              display:inline;
+              float:right;
+              padding: 10px 10px 10px 8px;
+              margin: 0 3% 0 0;
+              color: #fff;
+              cursor:pointer;
+              line-height: 225%;
+            }
+
+            li:hover{
+              background-color: #888888;
+            }
+
+            .menu{
+            display:none;
+            color:#fff;
+            font-weight:bold;
+            }
+
+            #text{
+            float:left;
+            }
+
+             #image{
+             float:right;
+             cursor:pointer;
+             }
+
+
+
+            @media screen and (max-width: 600px){
+                .nav-bar-area{
+                height:auto;
+                overflow:auto;
+                }
+
+                ul{
+                width: 100%;
+                height: auto;
+                display:block;
+                overflow: hidden;
+                }
+
+                ul li{
+                width: 70%;
+                float:left;
+                position: relative;
+                display:block;
+                margin: -1px;
+                padding: 10px 0 10px 0;
+                text-indent: 25px;
+                border-bottom: 1px solid #888888;
+                border-right: 1px solid #888888;
+                }
+
+                .nav-bar{
+                display:block;
+                }
+
+
+            }
+
+            @media screen and (max-width: 480px){
+
+                .menu{
+                display:block;
+                padding: 20px 0 40px 0;
+                border-bottom: 1px solid #fff;
+                }
+
+                #text{
+                margin: 0 0 0 20px;
+                }
+
+                #image{
+                margin: 0 30px 0 0;
+                }
+
+                .nav-bar{
+                display:none;
+                }
+
+                .nav-bar{
+                font-size: 0.8em;
+                }
+
+
+            }
+
+
+
+
+      </style>
+
+        <div class="wrapper">
+        <div class="nav-bar-area">
+            
+            <div class="menu">
+                <div id="text">
+                    <img src="{% static 'img/logo.png' %}" height="50px">
+                </div>
+                <div id="image">
+                    <img src="https://i.ya-webdesign.com/images/hamburger-icon-white-png-13.png" height="20px"/>
+                </div>
+            </div>
+            
+            <div class="nav-bar">
+                <div class="row">
+                    <div class="col-lg-2" style="padding-left: 100px;">
+                        <img src="{% static 'img/logo.png' %}" height="50px">
+                    </div>
+                    <div class="col-lg-10">
+                        <ul>
+                            <a href="{% url 'logout_url' %}"><li>Logout</li></a>
+                            <a href="{% url 'home' %}"><li>{{ user.username }}</li></a>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</head>
+<body>
+    {% block body %}
+    {% endblock %}
+
+    {% block scripts %}
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block static %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+<style>
+.container {
+width: 100%;
+padding: 10px 10px 10px 10px;
+
+}
+
+.frame {
+height: 100%;
+background:
+linear-gradient(
+rgba(35,43,85,0.75),
+rgba(35,43,85,0.95)),
+url(https://dl.dropboxusercontent.com/u/22006283/preview/codepen/clouds-cloudy-forest-mountain.jpg) no-repeat center center;
+background-size: cover;
+margin-left: 0px;
+margin-right: 0px;
+border-top: solid 1px rgba(255,255,255,.5);
+border-radius: 5px;
+box-shadow: 0px 2px 7px rgba(0,0,0,0.2);
+overflow: hidden;
+transition: all .5s ease;
+}
+
+.form-styling {
+width: 100%;
+height: 35px;
+padding-left: 15px;
+padding-right: 15px;
+border: none;
+border-radius: 20px;
+margin-bottom: 20px;
+background: rgba(255,255,255,.2);
+}
+
+.form-styling-textarea {
+width: 100%;
+padding-left: 15px;
+padding-right: 15px;
+padding-top: 15px;
+padding-bottom: 15px;
+border: none;
+border-radius: 20px;
+margin-bottom: 20px;
+background: rgba(255,255,255,.2);
+}
+
+.form-styling::placeholder {
+color: #0f0f0f;
+}
+
+label {
+font-weight: 400;
+text-transform: uppercase;
+font-size: 13px;
+padding-left: 15px;
+padding-bottom: 10px;
+color: rgba(255,255,255,.7);
+display: block;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+    <div class="container" style="padding-top: 50px">
+      <div class="frame" style="padding-top: 10px">
+            <div class="row" style="padding: 10px;">
+                <div class="col-lg-10"><h3 style="color: white; padding-left: 20px"><b>Your Quiz's</b></h3></div>
+                <div class="col-lg-2"><a href="{% url 'new_form' %}"><button type="button" class="btn btn-outline-light btn-lg submit"> New Quiz</button></a></div>
+            </div>
+
+            {% for category in categories %}
+                <hr style="height:2px;border-width:0;color:white;background-color:white; margin: 0px 20px 0px 20px">
+                <div class="row" style="padding: 10px; align-self: center">
+                    <div class="col-lg-2" style="padding-left: 20px;"><p style="color: white;text-align: right">{{ forloop.counter }}</p></div>
+                    <div class="col-lg-8"><p style="color: white">{{ category.name }}</p></div>
+                    <div class="col-lg-2"><a href="{% url 'edit_form' category.slug %}"><button type="button" class="btn btn-outline-light btn-lg submit"> Edit Quiz</button></a></div>
+
+                </div>
+            {% endfor %}
+      </div>
+      </div>
+
+{% endblock %}

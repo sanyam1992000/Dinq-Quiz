@@ -1,14 +1,11 @@
+{% extends "base.html" %}
 {% load static %}
 {% load widget_tweaks %}
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/html">
 
-  <head>
-    <meta charset="utf-8">
-    <title>Quiz</title>
 
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-    <style>
+        {% block static %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+        <style>
         .container {
   width: 100%;
   padding: 10px 10px 10px 10px;
@@ -69,157 +66,13 @@ label {
   display: block;
 }
     </style>
-
-      <style>
-          html, body{
-  font-family: 'Exo 2', sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-
-.wrapper{
-  width: 100%;
-  margin: 0 auto;
-  padding: 0;
-}
-
-.nav-bar-area{
-  width: 100%;
-  height: 60px;
-  background-color: rgba(35,43,85,0.95);
-  padding: 0;
-  margin:0 auto;
-  position:relative;
-
-}
-
-ul{
-  margin: 0 auto;
-  padding: 0;
-  width: 900px;
-  height: 60px;
-}
-
-ul li{
-  display:inline;
-  float:right;
-  padding: 10px 10px 10px 8px;
-  margin: 0 3% 0 0;
-  color: #fff;
-  cursor:pointer;
-  line-height: 225%;
-}
-
-li:hover{
-  background-color: #888888;
-}
-
-.menu{
-display:none;
-color:#fff;
-font-weight:bold;
-}
-
-#text{
-float:left;
-}
-
- #image{
- float:right;
- cursor:pointer;
- }
-
-
-
-@media screen and (max-width: 600px){
-	.nav-bar-area{
-	height:auto;
-	overflow:auto;
-	}
-
-	ul{
-	width: 100%;
-	height: auto;
-	display:block;
-	overflow: hidden;
-	}
-
-	ul li{
-	width: 50%;
-	float:left;
-	position: relative;
-	display:block;
-	margin: -1px;
-	padding: 10px 0 10px 0;
-	text-indent: 25px;
-	border-bottom: 1px solid #888888;
-	border-right: 1px solid #888888;
-	}
-
-	.nav-bar{
-	display:block;
-	}
-
-
-}
-
-@media screen and (max-width: 480px){
-
-	.menu{
-	display:block;
-	padding: 20px 0 40px 0;
-	border-bottom: 1px solid #fff;
-	}
-
-	#text{
-	margin: 0 0 0 20px;
-	}
-
-	#image{
-	margin: 0 30px 0 0;
-	}
-
-	.nav-bar{
-	display:none;
-	}
-
-	.nav-bar{
-	font-size: 0.8em;
-	}
-
-
-}
+        {% endblock %}
 
 
 
 
 
-      </style>
-  </head>
-
-
-
-<body style="background-color: rgba(35,43,85,0.75);">
-
-    <div class="wrapper">
-        <div class="nav-bar-area">
-            <div class="menu">
-                <div id="text">Menu</div>
-                <div id="image"><img src="https://i.ya-webdesign.com/images/hamburger-icon-white-png-13.png" height="20px"/></div>
-            </div>
-            <div class="nav-bar">
-                <ul>
-                    <a href="{% url 'logout_url' %}"><li>Logout</li></a>
-                    <li>{{ user.username }}</li>
-                  </ul>
-
-            </div>
-        </div>
-    </div>
-
-
-
+    {% block body %}
 
     <div class="container" style="padding-top: 50px">
       <div class="frame">
@@ -227,15 +80,19 @@ float:left;
         <form class="form-signup" action="" method="post" name="form">
             {{ formset.management_form }}
             {% csrf_token %}
-            <div class="col-12 align-self-center" style="padding-bottom: 50px; padding-top: 50px; padding-left: 80px; padding-right: 80px">
+                <div class="col-12 align-self-center" style="padding-bottom: 50px; padding-top: 50px; padding-left: 80px; padding-right: 80px">
 
+                    <div class="row">
+                        <h4 style="color:white;">Category</h4>
+                        {% render_field form.name placeholder="Category" class="form-styling" type="text" %}
+                    </div>
                 <div class="row">
-                    <h4 style="color:white;">Category</h4>
-                    {% render_field form.name placeholder="Category" class="form-styling" type="text" %}
+                    <h5 style="color:white;"> Dedicated Quiz &ensp;   &ensp;</h5>
+                    {% render_field form.dedicated %}
                 </div>
-                <hr style="height:2px;border-width:0;color:white;background-color:white">
                 <div id="questions">
                     {% for form1 in formset %}
+                        <hr style="height:2px;border-width:0;color:white;background-color:white">
                         <div class="row">
                             <div class="col-12">
                                 <div class="row">
@@ -252,7 +109,7 @@ float:left;
                                         <div class="input-group mb-3">
                                           <div class="input-group-prepend">
                                             <div class="input-group-text">
-                                              <input type="radio" name="correct-answer-{{ forloop.counter }}" value="1">
+                                              <input type="radio" name="Question-{{ forloop.counter0 }}-correct_answer" value="1">
                                             </div>
                                           </div>
                                             {% render_field form1.option_1 type="text" class="form-control form-styling" style="background: rgba(255,255,255,.2);border: none;border-radius: 20px;" placeholder="Option 1"%}
@@ -263,7 +120,7 @@ float:left;
                                         <div class="input-group mb-3">
                                           <div class="input-group-prepend">
                                             <div class="input-group-text">
-                                              <input type="radio" name="correct-answer-{{ forloop.counter }}" value="2">
+                                              <input type="radio" name="Question-{{ forloop.counter0 }}-correct_answer" value="2">
                                             </div>
                                           </div>
                                             {% render_field form1.option_2 type="text" class="form-control form-styling" style="background: rgba(255,255,255,.2);border: none;border-radius: 20px;" placeholder="Option 2  (Optional)"%}
@@ -274,7 +131,7 @@ float:left;
                                         <div class="input-group mb-3">
                                           <div class="input-group-prepend">
                                             <div class="input-group-text">
-                                              <input type="radio" name="correct-answer-{{ forloop.counter }}" value="3">
+                                              <input type="radio" name="Question-{{ forloop.counter0 }}-correct_answer" value="3">
                                             </div>
                                           </div>
                                             {% render_field form1.option_3 type="text" class="form-control form-styling" style="background: rgba(255,255,255,.2);border: none;border-radius: 20px;" placeholder="Option 3 (Optional)"%}
@@ -285,7 +142,7 @@ float:left;
                                         <div class="input-group mb-3">
                                           <div class="input-group-prepend">
                                             <div class="input-group-text">
-                                              <input type="radio" name="correct-answer-{{ forloop.counter }}" value="4">
+                                              <input type="radio" name="Question-{{ forloop.counter0 }}-correct_answer" value="4">
                                             </div>
                                           </div>
                                             {% render_field form1.option_4 type="text" class="form-control form-styling" style="background: rgba(255,255,255,.2);border: none;border-radius: 20px;" placeholder="Option 4 (Optional)"%}
@@ -305,6 +162,9 @@ float:left;
 
                             </div>
                         </div>
+                        {% for field in form1.hidden_fields %}
+                            {{ field }}
+                            {% endfor %}
                     {% endfor %}
                 </div>
 
@@ -389,6 +249,10 @@ float:left;
                         </div>
     </div>
 
+    {% endblock %}
+
+
+    {% block scripts %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -420,6 +284,4 @@ float:left;
 
         });
     </script>
-</body>
-
-</html>
+    {% endblock %}

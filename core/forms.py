@@ -8,7 +8,7 @@ from . import models
 class CategoryForm(forms.ModelForm):
     class Meta:
         model = models.Category
-        fields = '__all__'
+        exclude = ('user', 'slug')
 
 
 class QuestionForm(forms.ModelForm):

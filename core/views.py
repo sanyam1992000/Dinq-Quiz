@@ -8,6 +8,7 @@ from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser, I
 from rest_framework import viewsets, status, authentication
 from core import serializers
 from . import models, forms
+import requests
 from quiz import settings
 # Create your views here.
 
@@ -30,21 +31,37 @@ def EmptyFormView(request):
                                                   can_delete=True, extra=1)
 
     if request.method == 'POST':
-        categoryform = forms.CategoryForm(request.POST)
+        # categoryform = forms.CategoryForm(request.POST)
+        # if categoryform.is_valid():
+        #     name = request.POST['name']
+        #     dedicated = request.POST.get('dedicated', '') == 'on'
+        #     slug = name.replace(' ', '-')
+        #     category = models.Category(name=name, dedicated=dedicated, user=user, slug=slug)
+        #     category.save()
 
-        if categoryform.is_valid():
-            name = request.POST['name']
-            dedicated = request.POST.get('dedicated', '') == 'on'
-            slug = name.replace(' ', '-')
-            category = models.Category(name=name, dedicated=dedicated, user=user, slug=slug)
-            category.save()
+        formset = QuestionFormSet(request.POST, prefix='Question')
+        print(request.POST)
+        category_id = request.POST['category_id']
+        if formset.is_valid():
+            url = 'https://dinq.in/rest/input-quiz/'
+            for form in formset:
+                question = form.cleaned_data['ques']
+                description = form.cleaned_data['description']
+                opt_1 = form.cleaned_data['option_1']
+                opt_2 = form.cleaned_data['option_2']
+                opt_3 = form.cleaned_data['option_3']
+                opt_4 = form.cleaned_data['option_4']
+                correct = form.cleaned_data['correct_answer']
 
-            formset = QuestionFormSet(request.POST, instance=category, prefix='Question')
-            print(request.POST)
-
-            if formset.is_valid():
-                for form1 in formset:
-                    form1.save()
+                params = {
+                    'category_id': category_id,
+                    'question' : question,
+                    'quetion_choices': [opt_1,opt_2,opt_3,opt_4],
+                    'answer_key' : correct,
+                    'explanation': description
+                }
+                print(params)
+                requests.post(url, params=params)
 
             return redirect('home')
         else:
@@ -53,10 +70,14 @@ def EmptyFormView(request):
         formset = QuestionFormSet(prefix='Question')
         categoryform = forms.CategoryForm()
 
+        url = 'https://dinq.in/rest/get-category-type/'
+        r = requests.get(url)
+        d = r.json().get("category_types")
         context = {
             'user': user,
             'form': categoryform,
             'formset': formset,
+            'categories': d,
         }
         return render(request, 'testquiz1.html', context)
 

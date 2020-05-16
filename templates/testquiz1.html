@@ -84,7 +84,14 @@ label {
 
                     <div class="row">
                         <h4 style="color:white;">Category</h4>
-                        {% render_field form.name placeholder="Category" class="form-styling" type="text" %}
+                        <select name="category_id" placeholder="Category" class="form-styling">
+                            {% for category in categories %}
+                                  <option value={{ category.id }}>{{ category.category_type }}</option>
+                             {% endfor %}
+                        </select>
+
+
+
                     </div>
                 <div class="row">
                     <h5 style="color:white;"> Dedicated Quiz &ensp;   &ensp;</h5>

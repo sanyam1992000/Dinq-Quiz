@@ -31,15 +31,18 @@ def EmptyFormView(request):
                                                   can_delete=True, extra=1)
 
     if request.method == 'POST':
-        # categoryform = forms.CategoryForm(request.POST)
-        # if categoryform.is_valid():
-        #     name = request.POST['name']
-        #     dedicated = request.POST.get('dedicated', '') == 'on'
-        #     slug = name.replace(' ', '-')
-        #     category = models.Category(name=name, dedicated=dedicated, user=user, slug=slug)
-        #     category.save()
+        print(request.POST)
+        categoryform = forms.CategoryForm(request.POST)
+        category_id = str(request.POST['category_id'])
+        dedicated = request.POST.get('dedicated', '') == 'on'
+        print(category_id, dedicated)
+        slug = category_id.replace(' ', '-')
+        print(category_id, dedicated, slug)
+        category = models.Category(name=str(category_id), dedicated=dedicated, user=user, slug=slug)
+        print("############################################################################")
+        category.save()
 
-        formset = QuestionFormSet(request.POST, prefix='Question')
+        formset = QuestionFormSet(request.POST, instance=category, prefix='Question')
         print(request.POST)
         category_id = request.POST['category_id']
         if formset.is_valid():
@@ -62,7 +65,7 @@ def EmptyFormView(request):
                 }
                 print(params)
                 requests.post(url, params=params)
-
+                form.save()
             return redirect('home')
         else:
             return HttpResponse("invalid", status=500)

@@ -2,7 +2,7 @@ django-widget-tweaks==1.4.8
 Django
 djangorestframework==3.11.0
 django-import-export
-Pillow==7.0.0
+Pillow==9.0.1
 django-allauth
 
 pytz==2019.3
